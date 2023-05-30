@@ -18,7 +18,8 @@ const schema = yup
   .required();
 
 const Login = () => {
-  const {
+  const
+   {
     control,
     formState: { errors, isValid },
   } = useForm<IFormLogin>({
@@ -27,6 +28,10 @@ const Login = () => {
     defaultValues,
     reValidateMode: "onChange",
   });
+
+const handleEntrar = () => {
+  alert("Login realizado com sucesso!")
+}
 
   return (
     <Container>
@@ -49,7 +54,7 @@ const Login = () => {
             errorMessage={errors?.password?.message}
           />
           <Spacing />
-          <Button title="Entrar" />
+          <Button title="Entrar" onClick={handleEntrar} disabled={!isValid} />
         </Column>
       </LoginContainer>
     </Container>
